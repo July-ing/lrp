@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+    </style>
+    <script>
+
+        document.addEventListener("fullscreenchange", function(e) {
+            console.log("fullscreenchange", e);
+        });
+        document.addEventListener("mozfullscreenchange", function(e) {
+            console.log("mozfullscreenchange ", e);
+        });
+        document.addEventListener("webkitfullscreenchange", function(e) {
+            console.log("webkitfullscreenchange", e);
+        });
+        document.addEventListener("msfullscreenchange", function(e) {
+            console.log("msfullscreenchange", e);
+        });
+        function keypressed() {
+            if(event.keyCode == 122) {
+                event.keyCode = 0;
+                return false;
+            }
+            else if (event.keyCode == 27) {
+                event.keyCode = 0;
+                return false;
+            }
+        }
+        document.onkeydown = keypressed;
+
+
+        $(document).ready(function(){
+
+
+            $(".danx").click(function () {
+
+                $(this).siblings(".danx").children("input").attr("checked",false);
+                $(this).siblings(".danx").find(".button").css("border-color","#D3D4D5");
+                $(this).siblings(".danx").find(".button2").css("background-color","#fff");
+
+                $(this).find("input").attr("checked",true);
+                $(this).find(".button").css("border-color","hotpink");
+                $(this).find(".button2").css("background-color","hotpink");
+
+            });
+            $(".duox").click(function () {
+                if($(this).find("input").attr("checked")){
+                    $(this).find("input").attr("checked",false);
+                    $(this).find(".button1").css("border-color","#D3D4D5");
+                    $(this).find(".button2").css("background-color","#fff");
+                }else{
+                    $(this).find("input").attr("checked",true);
+                    $(this).find(".button1").css("border-color","hotpink");
+                    $(this).find(".button2").css("background-color","hotpink");
+                }
+            });
+        });
+        $(document).mouseleave(function() {
+            $('.debug').html('left!');
+        })
+
+        $(document).mouseenter(function() {
+            $('.debug').html('enter!');
+        })
+    </script>
+</head>
+<body>
+    <h1 class="debug">Hello Plunker!</h1>
+    <div class="bx">
+    <div class="left fl">
+            <div class="top pad40" >
+                <h1 class="al fl ">京东2016实习生招聘运维开发工程师</h1>
+                <p class="fr ">Time</p>
+            </div>
+            <div class="bottom pad40">
+                <form class="danxuan">
+                    <h2 class="bl50">1.单选题</h2>
+                    <div class="ti p20">
+                        <div class="timu p20 ftsz16 mb40">关于软件质量特性，指软件所实现的功能满足用户要求的程度的是（      ）</div>
+                        <div class="xuanxiang p15_20 m8 ftsz16 danx"><input type="radio" class = "hidden" name="danxuan"><div class="button"><div class="button2"></div></div><i class="m8">A</i>易用性</div>
+                        <div class="xuanxiang p15_20 m8 ftsz16 danx"><input type="radio" class = "hidden" name="danxuan"><div class="button"><div class="button2"></div></div><i class="m8">B</i>完整性</div>
+                        <div class="xuanxiang p15_20 m8 ftsz16 danx"><input type="radio" class = "hidden" name="danxuan"><div class="button"><div class="button2"></div></div><i class="m8">C</i>可靠性</div>
+                        <div class="xuanxiang p15_20 m8 ftsz16 danx"><input type="radio" class = "hidden" name="danxuan"><div class="button"><div class="button2"></div></div><i class="m8">D</i>正确性</div>
+                    </div>
+                    <div class="sub fr">
+                        <input type="button" class = "ftsz14" value="交卷">  <a href="" class="ac ftsz14 ">下一题</a>
+                    </div>
+                </form>
+                <form class="duoxuan">
+                    <h2 class="bl50">2.多选题</h2>
+                    <div class="ti p20">
+                        <div class="timu p20 ftsz16 mb40">关于软件质量特性，指软件所实现的功能满足用户要求的程度的是（      ）</div>
+                        <div class="xuanxiang p15_20 m8 ftsz16 duox"><input type="checkbox" class = "hidden" name="duoxuan"><div class="button1"><div class="button2"></div></div><i class="m8">A</i>易用性</div>
+                        <div class="xuanxiang p15_20 m8 ftsz16 duox"><input type="checkbox" class = "hidden" name="duoxuan"><div class="button1"><div class="button2"></div></div><i class="m8">B</i>完整性</div>
+                        <div class="xuanxiang p15_20 m8 ftsz16 duox"><input type="checkbox" class = "hidden" name="duoxuan"><div class="button1"><div class="button2"></div></div><i class="m8">C</i>可靠性</div>
+                        <div class="xuanxiang p15_20 m8 ftsz16 duox"><input type="checkbox" class = "hidden" name="duoxuan"><div class="button1"><div class="button2"></div></div><i class="m8">D</i>正确性</div>
+                    </div>
+                    <div class="sub fr">
+                        <input type="button" class = "ftsz14" value="交卷">  <a href="" class="ac ftsz14 ">下一题</a>
+                    </div>
+                </form>
+                <div class="clll"></div>
+                <form action="" class="tiankong">
+                    <h2 class="bl50">3.填空题</h2>
+                    <div class="areax"><span>耦合和独立是评价模块独立性的两个主要标准，其中</span><input type="text"><span>反映了模块内各成分之间的联系。</span></div>
+                    <div class="sub fr">
+                        <input type="button" class = "ftsz14" value="交卷">  <a href="" class="ac ftsz14 ">下一题</a>
+                    </div>
+                </form>
+                <form action="" class="tiankong">
+                    <h2 class="bl50">4.代码填空题</h2>
+                    <div class="areax"><span>while(~scanf("%d",&temp)){
+        memset(dp,0,sizeof dp);
+        b[temp] = 1;
+        for(int i = 2; i <= n; i++){</span><input type="text" class="dmtk"><span>b[temp] = i;
+        }</span></div>
+                    <div class="sub fr">
+                        <input type="button" class = "ftsz14" value="交卷">  <a href="" class="ac ftsz14 ">下一题</a>
+                    </div>
+                </form>
+                <div class="biancheng">
+                    <h2 class="bl50">5.编程题</h2>
+                    <div class="ti p20">
+                        <div class="title ac">
+                            <h2>买糖果（京东2016实习生真题）</h2>
+                            <p>内存限制 C/C++语言：<span>65536KB</span> 其他语言：<span>589824KB</span></p>
+                            <p>时间限制 C/C++语言：<span>1000MS</span> 其他语言：<span>3000MS</span></p></div>
+                        <h3>问题描述</h3>
+                        <p class = "al areax">某糖果公司专门生产儿童糖果，它最受儿童欢迎的糖果有A1、A2两个序列，均采用盒式包装。包装好的A1类糖果体积为一个存储单位，而包装好的A2类糖果体积正好是A1类的两倍。
+
+                            这两类糖果之所以广受儿童欢迎，是因为糖果中含有公司独家研发的魔幻因子。A1或A2序列中的糖果，看起来包装可能是一样的，但因为其中的魔幻因子含量不同被细分为不同的产品。
+
+                            临近传统节日，公司的糖果供不应求。作为一个精明的糖果分销商，小东希望能够借此大赚一笔，于是带着现金开着货车来公司提货。货车的容量是确定的，小东希望采购的糖果能够尽可能装满货车，且糖果的魔幻因子总含量最高。只要不超出货车容量，糖果总可以装入货车中。
+
+                            小东希望你能帮她解决这一问题。
+                        </p>
+                        <h3>输入</h3>
+                        <p class = "al areax">
+                            The first line of the input contains an integer T(1<=T<=20) which means the number of test cases. Then T lines follow, each line starts with a number N(1<=N<=100000), then N integers followed(all the integers are between -1000 and 1000).
+                        </p>
+                        <h3>输出</h3>
+                        <p class= "al areax">For each test case, you should output two lines. The first line is "Case #:", # means the number of the test case. The second line contains three integers, the Max Sum in the sequence, the start position of the sub-sequence, the end position of the sub-sequence. If there are more than one result, output the first one. Output a blank line between two cases.</p>
+                        <h3>样例输入</h3>
+                        <p class="al areax">2
+5 6 -1 5 4 -7
+7 0 6 -1 1 -6 7 -5</p>
+                        <h3>样例输出</h3>
+                        <p class="al areax">Case 1:
+14 1 4
+
+Case 2:
+7 1 6
+                        </p>
+                        <h3 class="ilb">选择语言</h3>
+
+                        <select name="selectLanguage" id="selectLanguage">
+                            <option value="1">G++</option>
+                            <option value="2">GCC</option>
+                            <option value="3">C++</option>
+                            <option value="4">C</option>
+                            <option value="5">Pascal</option>
+                            <option value="6">Java</option>
+                            <option value="7">C#</option>
+
+
+                        </select>
+                        <div class="ac"><h3>Source Code</h3></div>
+                        <textarea name="" id=""></textarea>
+                        <div class="ar"><input type="submit" value="提交" class="button3" onclick="fullScreen()"></div>
+                    </div>
+                    <div class="sub fr">
+                        <input type="button" class = "ftsz14" value="交卷">  <a href="test2.html" class="ac ftsz14 " >下一题</a>
+                    </div>
+                </div>
+
+            </div>
+            
+    </div>
+    <div class="right fr">
+        <div class="topr">
+            <p>试题难度：♥</p>
+            <p>最高得分：100分</p>
+        </div>
+        <div class="br">
+            <h2>全部试题 (<span class="action2">7</span>/<span>27</span>)</h2>
+            <div class="">
+                <p>第一部分：<i>选择题部分</i> </p>
+
+                <span class="quan ac action">1</span>
+                <span class="quan ac">2</span>
+                <span class="quan ac">3</span>
+                <span class="quan ac">4</span>
+                <span class="quan ac">5</span>
+                <span class="quan ac">6</span>
+            </div>
+
+            <div class="">
+                <p>第二部分：<i>在线编程题部分</i> </p>
+                <span class="quan ac">1</span>
+            </div>
+            <div class="zhushi ">
+                <i></i> <p>已答</p>&nbsp;&nbsp;
+                <i></i> <p>未答</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+</body>
+</html>

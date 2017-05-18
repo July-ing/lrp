@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        body{
+            height: 800px;
+        }
+    </style>
+    <script>
+        // Code goes here
+
+
+        $(document).mouseleave(function() {
+            $('.debug').html('left!');
+        })
+
+        $(document).mouseenter(function() {
+            $('.debug').html('enter!');
+        })
+    </script>
+</head>
+
+<body>
+<h1 class="debug">Hello Plunker!</h1>
+
+</body>
+
+</html>

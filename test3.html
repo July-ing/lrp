@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title> 页面名称 </title>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <style type="text/css">
+        #butt {
+            width: 150px;
+            height: 58px;
+            font-size: 30px;
+            line-height: 58px;
+            color: #440000;
+            background: #dd8e4f;
+            border: 1px solid #ff6600;
+            text-align: center;
+            cursor: default;
+        }
+        #box {
+            overflow: hidden;
+            width: 0;
+            height: 0;
+        }
+        #test {
+            width: 100%;
+            height: 100%;
+            border-style: none;
+        }
+    </style>
+    <script>
+        function keypressed() {
+            if(event.keyCode == 122) {
+                event.keyCode = 0;
+                return false;
+            }
+            else if (event.keyCode == 27) {
+                event.keyCode = 0;
+                return false;
+            }
+        }
+        document.onkeydown = keypressed;
+        $("#test").onkeydown = keypressed;
+        document.addEventListener("fullscreenchange", function(e) {
+            console.log("fullscreenchange", e);
+            fullScreen('test');
+        });
+        document.addEventListener("mozfullscreenchange", function(e) {
+            console.log("mozfullscreenchange ", e);
+            fullScreen('test');
+        });
+        document.addEventListener("webkitfullscreenchange", function(e) {
+            console.log("webkitfullscreenchange", e);
+            fullScreen('test');
+        });
+        document.addEventListener("msfullscreenchange", function(e) {
+            console.log("msfullscreenchange", e);
+            fullScreen('test');
+        });
+
+    </script>
+</head>
+<body>
+<div onclick="fullScreen('test')" id="butt"> 开始考试 </div>
+<div id="box">
+    <iframe src="index.html" id="test"></iframe>
+</div>
+<script type="text/javascript">
+    function fullScreen(id) {
+        var element = document.getElementById(id);
+        if (element.requestFullScreen)
+            return element.requestFullScreen();
+        if (element.webkitRequestFullScreen)
+            return element.webkitRequestFullScreen();
+        if (element.mozRequestFullScreen)
+            return element.mozRequestFullScreen();
+        if (element.msRequestFullScreen)
+            return element.msRequestFullScreen();
+        if (element.oRequestFullScreen)
+            return element.oRequestFullScreen();
+    }
+
+</script>
+</body>
+</html>
